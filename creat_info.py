@@ -7,8 +7,15 @@ import subprocess
 import os
 
 '''
-###Pensar em aqui ser o entrypoint, dps criar def pra isso
-(pyinstaller)Pra isso preciso criar um arquivo compilado afim de evitar incompatibilidade, cada um pra seu SO e arquitetura 32 ou 64bits
+###Criação do Entrypoint para divulgação do artefato, não sendo necessário ser passado o arquivoa via e-mail e sim o link desejável...
+(pyinstaller)Pra isso preciso criar um arquivo compilado afim de evitar incompatibilidade, cada um pra seu SO e arquitetura 32 ou 64bits - 
+
+Caso precise da crição do executável no Linux porém que seja funcional em Linux, adicionar esse detalhe na crição:
+
+pyinstaller --onefile --windowed --add-data 'seu_arquivo.ui;.' --add-binary 'caminho/para/o/icon.ico;.' --distpath=./windows_executable/ --specpath=./tmp/ --workpath=./tmp/ --clean --log-level=WARN --icon=caminho/para/o/icon.ico --name=nome_do_executavel.exe --platform=win32 seu_arquivo.py
+
+Versionamento no Linux para executável Windows XD
+
 response = requests.get('')
 with open ('Inj.txt', 'wb') as f:
     f.write(response.content)
